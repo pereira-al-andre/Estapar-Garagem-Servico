@@ -1,6 +1,9 @@
 # O Projeto
 Este projeto tem como objetivo permitir testar um comportamento básico de uma API de garagem. 
 
+![Api print](https://i.imgur.com/iX0U2al.png)
+![Api print2](https://i.imgur.com/wecH1Z9.png)
+
 ## Para rodar o projeto:
 01 Inicie o docker;
 02 Rode o projeto;
