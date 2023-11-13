@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  estapar-db:
+    container_name: "EstaparDB"
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    ports:
+       - 1450:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Estapar@2023
+  etp.api:
+    container_name: "EstaparAPI"
+    image: ${DOCKER_REGISTRY-}etpapi
+    build:
+      context: .
+      dockerfile: ETP.API/Dockerfile
+    ports:
+        - 8001:80
+    depends_on: 
+        - estapar-db
+    environment:
+        - DB_HOST=localhost:1450
+        - DB_NAME=EstaparV4
+        - DB_SA_PASSWORD=Estapar@2023
